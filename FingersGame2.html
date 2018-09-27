@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <title>How Many Fingers?</title>
+
+        <style>
+
+            img {
+                width: 50px;
+                height: 50px;
+                display: block;
+                margin-top: 25px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <p>How many fingers am I holding up?</p>
+
+        <input type="text" name="" id="fingers">
+
+        <button id="guess">Computer Guess!</button>
+
+        <img src="fuckyou.jpg" id="fuckyou">
+
+        <img src="okimg.jpg" id="okimg">
+
+        <script>
+
+            document.getElementById("fuckyou").style.display = "none";
+
+            document.getElementById("okimg").style.display = "none";
+
+            document.getElementById("guess").onclick = function () {
+
+                var numberPick = document.getElementById("fingers").value;
+
+                var predictedNumber = Math.floor(Math.random() * 6);                
+
+                console.log(predictedNumber);
+
+                while (predictedNumber != numberPick) {
+
+                    predictedNumber = Math.floor(Math.random() * 6);
+
+                    console.log(predictedNumber);
+
+                    alert("Nope, try again");
+
+                    document.getElementById("fuckyou").style.display = "block";                                    
+                    
+                }                
+
+                if (predictedNumber == numberPick)  {                
+
+                    document.getElementById("okimg").style.display = "block";     
+
+                    document.getElementById("fuckyou").style.display = "none";           
+
+                    alert("All right!!!");
+
+                }
+                
+            }
+            
+        </script>
+
+    </body>
+
+</html>
+
